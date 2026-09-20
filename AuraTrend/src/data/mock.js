@@ -1,10 +1,12 @@
-const img = (seed, w = 800, h = 1000) =>
-  `https://picsum.photos/seed/${seed}/${w}/${h}`;
+const img = (tags, lock, w = 800, h = 1000) =>
+  `https://loremflickr.com/${w}/${h}/${tags}?lock=${lock}`;
+
+const avatar = (lock) => img("portrait,face", lock, 200, 200);
 
 export const posts = [
   {
     id: "p1",
-    image: img("auratrend-quiet-luxury"),
+    image: img("camel,coat,fashion", 11),
     caption: "Quiet luxury in camel and cream — the fall uniform.",
     creator: { name: "Mara Vance", handle: "@maravance" },
     likes: 18420,
@@ -14,7 +16,7 @@ export const posts = [
   },
   {
     id: "p2",
-    image: img("auratrend-burgundy-street"),
+    image: img("burgundy", 42),
     caption: "Burgundy is the new black. Street style, Paris week.",
     creator: { name: "Idris Okafor", handle: "@idrisok" },
     likes: 24190,
@@ -24,7 +26,7 @@ export const posts = [
   },
   {
     id: "p3",
-    image: img("auratrend-archival-tailoring"),
+    image: img("blazer,tailoring", 13),
     caption: "Archival tailoring, reworked. The blazer is back.",
     creator: { name: "Sora Lindqvist", handle: "@soralin" },
     likes: 12760,
@@ -34,7 +36,7 @@ export const posts = [
   },
   {
     id: "p4",
-    image: img("auratrend-mob-wife"),
+    image: img("fur,coat,outerwear", 14),
     caption: "Coats, fur, gold. The mob-wife aesthetic peaks.",
     creator: { name: "Carmen DiLucca", handle: "@carmend" },
     likes: 31250,
@@ -44,7 +46,7 @@ export const posts = [
   },
   {
     id: "p5",
-    image: img("auratrend-minimal-beige"),
+    image: img("cream,fashion", 15),
     caption: "Beige on beige. Less, but better.",
     creator: { name: "Yuki Hamada", handle: "@yukihama" },
     likes: 9870,
@@ -54,7 +56,7 @@ export const posts = [
   },
   {
     id: "p6",
-    image: img("auratrend-leather-trench"),
+    image: img("leather,trench,coat", 16),
     caption: "Leather trenches are having a moment.",
     creator: { name: "Noor Abadi", handle: "@noorabadi" },
     likes: 15340,
@@ -64,7 +66,7 @@ export const posts = [
   },
   {
     id: "p7",
-    image: img("auratrend-wedding-lace"),
+    image: img("bridal,lace", 17),
     caption: "White wedding dress with hand-embroidered lace. The bridal moment of the season.",
     creator: { name: "Elara Bride", handle: "@elarabride" },
     likes: 42800,
@@ -74,7 +76,7 @@ export const posts = [
   },
   {
     id: "p8",
-    image: img("auratrend-wedding-satin"),
+    image: img("wedding,dress,satin", 18),
     caption: "Minimal satin wedding dress — the quiet-luxury bridal uniform.",
     creator: { name: "Vows & Veils", handle: "@vowsveils" },
     likes: 38120,
@@ -84,7 +86,7 @@ export const posts = [
   },
   {
     id: "p9",
-    image: img("auratrend-wedding-vintage"),
+    image: img("vintage,wedding,dress", 19),
     caption: "Vintage-inspired wedding dress, reworked for the modern bride.",
     creator: { name: "Elara Bride", handle: "@elarabride" },
     likes: 27640,
@@ -94,7 +96,7 @@ export const posts = [
   },
   {
     id: "p10",
-    image: img("auratrend-wedding-sheer"),
+    image: img("wedding,dress,silk", 20),
     caption: "Sheer sleeves, silk gown. The white wedding dress evolves.",
     creator: { name: "Vows & Veils", handle: "@vowsveils" },
     likes: 31900,
@@ -105,25 +107,25 @@ export const posts = [
 ];
 
 export const popularStyles = [
-  { id: "s1", name: "Quiet Luxury", growth: 34, image: img("style-quiet-luxury", 600, 600) },
-  { id: "s2", name: "Mob Wife Aesthetic", growth: 58, image: img("style-mob-wife", 600, 600) },
-  { id: "s3", name: "Archival Tailoring", growth: 21, image: img("style-archival", 600, 600) },
-  { id: "s4", name: "Coastal Grandma", growth: 12, image: img("style-coastal", 600, 600) },
-  { id: "s5", name: "Burgundy Revival", growth: 47, image: img("style-burgundy", 600, 600) },
-  { id: "s6", name: "Structured Minimalism", growth: 18, image: img("style-minimal", 600, 600) },
-  { id: "s7", name: "Bridal Minimalism", growth: 41, image: img("style-bridal-minimal", 600, 600) },
-  { id: "s8", name: "Vintage Wedding", growth: 27, image: img("style-vintage-wedding", 600, 600) },
+  { id: "s1", name: "Quiet Luxury", growth: 34, image: img("luxury,fashion", 21, 600, 600) },
+  { id: "s2", name: "Mob Wife Aesthetic", growth: 58, image: img("fur,coat,style", 22, 600, 600) },
+  { id: "s3", name: "Archival Tailoring", growth: 21, image: img("tailoring,blazer", 23, 600, 600) },
+  { id: "s4", name: "Coastal Grandma", growth: 12, image: img("coastal,style,lifestyle", 24, 600, 600) },
+  { id: "s5", name: "Burgundy Revival", growth: 47, image: img("burgundy", 25, 600, 600) },
+  { id: "s6", name: "Structured Minimalism", growth: 18, image: img("minimal,fashion", 26, 600, 600) },
+  { id: "s7", name: "Bridal Minimalism", growth: 41, image: img("bridal,minimal", 27, 600, 600) },
+  { id: "s8", name: "Vintage Wedding", growth: 27, image: img("vintage,wedding,dress", 28, 600, 600) },
 ];
 
 export const creators = [
-  { id: "c1", name: "Mara Vance", handle: "@maravance", avatar: img("avatar-mara", 200, 200), followers: 248000, posts: 412, trendScore: 91 },
-  { id: "c2", name: "Idris Okafor", handle: "@idrisok", avatar: img("avatar-idris", 200, 200), followers: 412000, posts: 738, trendScore: 96 },
-  { id: "c3", name: "Carmen DiLucca", handle: "@carmend", avatar: img("avatar-carmen", 200, 200), followers: 588000, posts: 1024, trendScore: 99 },
-  { id: "c4", name: "Sora Lindqvist", handle: "@soralin", avatar: img("avatar-sora", 200, 200), followers: 134000, posts: 286, trendScore: 83 },
-  { id: "c5", name: "Yuki Hamada", handle: "@yukihama", avatar: img("avatar-yuki", 200, 200), followers: 96000, posts: 198, trendScore: 76 },
-  { id: "c6", name: "Noor Abadi", handle: "@noorabadi", avatar: img("avatar-noor", 200, 200), followers: 221000, posts: 511, trendScore: 88 },
-  { id: "c7", name: "Elara Bride", handle: "@elarabride", avatar: img("avatar-elara", 200, 200), followers: 342000, posts: 689, trendScore: 94 },
-  { id: "c8", name: "Vows & Veils", handle: "@vowsveils", avatar: img("avatar-vows", 200, 200), followers: 218000, posts: 412, trendScore: 90 },
+  { id: "c1", name: "Mara Vance", handle: "@maravance", avatar: avatar(31), followers: 248000, posts: 412, trendScore: 91 },
+  { id: "c2", name: "Idris Okafor", handle: "@idrisok", avatar: avatar(32), followers: 412000, posts: 738, trendScore: 96 },
+  { id: "c3", name: "Carmen DiLucca", handle: "@carmend", avatar: avatar(33), followers: 588000, posts: 1024, trendScore: 99 },
+  { id: "c4", name: "Sora Lindqvist", handle: "@soralin", avatar: avatar(34), followers: 134000, posts: 286, trendScore: 83 },
+  { id: "c5", name: "Yuki Hamada", handle: "@yukihama", avatar: avatar(35), followers: 96000, posts: 198, trendScore: 76 },
+  { id: "c6", name: "Noor Abadi", handle: "@noorabadi", avatar: avatar(36), followers: 221000, posts: 511, trendScore: 88 },
+  { id: "c7", name: "Elara Bride", handle: "@elarabride", avatar: avatar(37), followers: 342000, posts: 689, trendScore: 94 },
+  { id: "c8", name: "Vows & Veils", handle: "@vowsveils", avatar: avatar(38), followers: 218000, posts: 412, trendScore: 90 },
 ];
 
 export const hashtags = [
